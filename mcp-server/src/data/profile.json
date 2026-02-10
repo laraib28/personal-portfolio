@@ -1,0 +1,23 @@
+{
+  "name": "Laraib Tabbassum",
+  "title": "Full Stack Developer",
+  "summary": "Full-stack developer with 2 years of experience building modern web applications using Next.js, React, and Python. Passionate about AI integration with hands-on expertise in Prompt Engineering, OpenAI SDK, and Google Gemini. Skilled in Specs-Driven Development (SDD) methodology and Claude CLI for building AI-powered applications. Focused on creating clean, responsive user interfaces with Tailwind CSS and TypeScript.",
+  "years_of_experience": 2,
+  "expertise": [
+    "Next.js & React",
+    "TypeScript & Python",
+    "Prompt Engineering & AI",
+    "Docker & Railway Deployment",
+    "Specs-Driven Development",
+    "Tailwind CSS"
+  ],
+  "availability": "Available",
+  "location": "Pakistan",
+  "contact": {
+    "email": "laraiadnan97@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/laraib-adnan-744955252/",
+    "github": "https://github.com/laraib28",
+    "vercel": "https://vercel.com/laraibs-projects-e55c3d31",
+    "twitter": null
+  }
+}

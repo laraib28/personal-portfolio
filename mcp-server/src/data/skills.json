@@ -1,0 +1,247 @@
+{
+  "skills": [
+    {
+      "id": "nextjs",
+      "name": "Next.js 14",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "nextjs",
+      "description": "Server-side rendering, App Router, API routes, dynamic routing, and optimized performance"
+    },
+    {
+      "id": "react",
+      "name": "React.js",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "react",
+      "description": "Hooks, Context API, component architecture, state management, and reusable UI components"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "typescript",
+      "description": "Type-safe development, interfaces, generics, and improved code maintainability"
+    },
+    {
+      "id": "javascript",
+      "name": "JavaScript (ES6+)",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "javascript",
+      "description": "Modern ES6+ features, async/await, DOM manipulation, and functional programming"
+    },
+    {
+      "id": "tailwindcss",
+      "name": "Tailwind CSS",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "tailwind",
+      "description": "Utility-first CSS, responsive design, custom themes, and rapid UI development"
+    },
+    {
+      "id": "shadcn-ui",
+      "name": "Shadcn UI",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "shadcn",
+      "description": "Accessible, customizable component library built on Radix UI primitives"
+    },
+    {
+      "id": "html-css",
+      "name": "HTML5 & CSS3",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "html",
+      "description": "Semantic markup, Flexbox, Grid, animations, and cross-browser compatibility"
+    },
+    {
+      "id": "responsive-design",
+      "name": "Responsive Web Design",
+      "category": "Frontend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "responsive",
+      "description": "Mobile-first approach, media queries, and adaptive layouts for all screen sizes"
+    },
+    {
+      "id": "framer-motion",
+      "name": "Framer Motion",
+      "category": "Frontend",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "framer",
+      "description": "Smooth animations, page transitions, and interactive UI effects"
+    },
+    {
+      "id": "python",
+      "name": "Python",
+      "category": "Backend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "python",
+      "description": "Scripting, automation, data processing, and backend development"
+    },
+    {
+      "id": "fastapi",
+      "name": "FastAPI",
+      "category": "Backend",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "fastapi",
+      "description": "High-performance Python APIs with automatic documentation and type validation"
+    },
+    {
+      "id": "nodejs",
+      "name": "Node.js",
+      "category": "Backend",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "nodejs",
+      "description": "Server-side JavaScript, npm ecosystem, and backend services"
+    },
+    {
+      "id": "rest-api",
+      "name": "REST APIs",
+      "category": "Backend",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "api",
+      "description": "API design, CRUD operations, authentication, and integration"
+    },
+    {
+      "id": "prompt-engineering",
+      "name": "Prompt Engineering",
+      "category": "AI & LLM",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "ai",
+      "description": "Crafting effective prompts, few-shot learning, chain-of-thought, and system instructions"
+    },
+    {
+      "id": "openai-sdk",
+      "name": "OpenAI SDK",
+      "category": "AI & LLM",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "openai",
+      "description": "GPT integration, function calling, embeddings, and AI-powered applications"
+    },
+    {
+      "id": "gemini",
+      "name": "Google Gemini",
+      "category": "AI & LLM",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "gemini",
+      "description": "Multimodal AI, Gemini API integration, and Google AI ecosystem"
+    },
+    {
+      "id": "claude-cli",
+      "name": "Claude CLI & SDK",
+      "category": "AI & LLM",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "claude",
+      "description": "Anthropic Claude integration, agentic workflows, and AI-assisted development"
+    },
+    {
+      "id": "rag",
+      "name": "RAG (Retrieval Augmented Generation)",
+      "category": "AI & LLM",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "rag",
+      "description": "Document retrieval, embeddings, vector search, and context-aware AI responses"
+    },
+    {
+      "id": "ai-chatbots",
+      "name": "AI Chatbot Development",
+      "category": "AI & LLM",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "chatbot",
+      "description": "Conversational AI, streaming responses, tool calling, and user intent handling"
+    },
+    {
+      "id": "docker",
+      "name": "Docker",
+      "category": "DevOps",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "docker",
+      "description": "Containerization, Docker Compose, image building, and deployment workflows"
+    },
+    {
+      "id": "git",
+      "name": "Git & GitHub",
+      "category": "DevOps",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "git",
+      "description": "Version control, branching strategies, PRs, code review, and collaboration"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel",
+      "category": "Deployment",
+      "proficiency": "Advanced",
+      "years": 2,
+      "icon": "vercel",
+      "description": "Serverless deployment, edge functions, CI/CD, and Next.js hosting"
+    },
+    {
+      "id": "railway",
+      "name": "Railway",
+      "category": "Deployment",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "railway",
+      "description": "Backend deployment, databases, environment management, and auto-scaling"
+    },
+    {
+      "id": "sdd",
+      "name": "Specs-Driven Development (SDD)",
+      "category": "Methodology",
+      "proficiency": "Advanced",
+      "years": 1,
+      "icon": "methodology",
+      "description": "Specification-first approach, structured planning, and traceable implementation"
+    },
+    {
+      "id": "agile",
+      "name": "Agile Development",
+      "category": "Methodology",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "agile",
+      "description": "Iterative development, sprint planning, and continuous improvement"
+    },
+    {
+      "id": "jwt-auth",
+      "name": "JWT Authentication",
+      "category": "Security",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "security",
+      "description": "Token-based auth, secure user sessions, and access control"
+    },
+    {
+      "id": "better-auth",
+      "name": "Better Auth",
+      "category": "Security",
+      "proficiency": "Intermediate",
+      "years": 1,
+      "icon": "auth",
+      "description": "Modern authentication library for secure user management"
+    }
+  ]
+}

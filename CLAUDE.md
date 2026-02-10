@@ -208,3 +208,10 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
+
+## Active Technologies
+- TypeScript 5.x (Frontend), Python 3.11+ (Backend) (001-ai-portfolio-system)
+- JSON files for portfolio data (no database required for MVP) (001-ai-portfolio-system)
+
+## Recent Changes
+- 001-ai-portfolio-system: Added TypeScript 5.x (Frontend), Python 3.11+ (Backend)

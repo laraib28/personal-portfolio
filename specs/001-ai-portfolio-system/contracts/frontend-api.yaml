@@ -1,0 +1,144 @@
+openapi: 3.1.0
+info:
+  title: Portfolio Frontend API Routes
+  description: |
+    Next.js API routes for the portfolio frontend.
+    Acts as a proxy between the browser and the MCP server.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000
+    description: Local development
+  - url: https://portfolio.vercel.app
+    description: Production (Vercel)
+
+tags:
+  - name: Chat
+    description: Chat API routes (proxy to MCP server)
+  - name: Data
+    description: Portfolio data routes (SSR/ISR fetched)
+
+paths:
+  /api/chat:
+    post:
+      tags: [Chat]
+      summary: Chat proxy endpoint
+      operationId: chatProxy
+      description: |
+        Proxies chat requests to the MCP server.
+        Handles streaming responses from OpenAI agent.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [message]
+              properties:
+                message:
+                  type: string
+                  description: User message
+                  maxLength: 2000
+                conversationId:
+                  type: string
+                  description: Optional conversation ID
+      responses:
+        '200':
+          description: Streaming chat response
+          content:
+            text/event-stream:
+              schema:
+                type: string
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '503':
+          description: MCP server unavailable
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+  /api/contact:
+    post:
+      tags: [Chat]
+      summary: Contact submission proxy
+      operationId: contactProxy
+      description: |
+        Proxies contact submissions to the MCP server.
+        Triggers email and WhatsApp notifications.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ContactRequest'
+      responses:
+        '200':
+          description: Contact submitted
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  message:
+                    type: string
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '429':
+          description: Rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
+components:
+  schemas:
+    ContactRequest:
+      type: object
+      required: [name, email, message, consent]
+      properties:
+        name:
+          type: string
+          maxLength: 100
+        email:
+          type: string
+          format: email
+        message:
+          type: string
+          minLength: 10
+          maxLength: 2000
+        consent:
+          type: boolean
+          description: Explicit consent for contact
+
+    Error:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+
+# Note: Portfolio data (profile, skills, projects) is fetched server-side
+# during SSR/ISR directly from MCP server. No client-facing API routes needed.
+#
+# Data fetching pattern:
+# - getStaticProps/generateStaticParams for project pages
+# - Server Components fetch MCP data directly
+# - No client-side data fetching for portfolio content

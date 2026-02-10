@@ -1,0 +1,33 @@
+# Render deployment configuration for MCP Server
+# See: https://render.com/docs/blueprint-spec
+
+services:
+  - type: web
+    name: portfolio-mcp-server
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn src.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: ENVIRONMENT
+        value: production
+      - key: CORS_ORIGINS
+        sync: false  # Set manually in dashboard
+      - key: OPENAI_API_KEY
+        sync: false  # Set manually in dashboard
+      - key: RESEND_API_KEY
+        sync: false  # Set manually in dashboard
+      - key: OWNER_EMAIL
+        sync: false  # Set manually in dashboard
+      - key: TWILIO_ACCOUNT_SID
+        sync: false  # Set manually in dashboard
+      - key: TWILIO_AUTH_TOKEN
+        sync: false  # Set manually in dashboard
+      - key: TWILIO_WHATSAPP_FROM
+        sync: false  # Set manually in dashboard
+      - key: OWNER_WHATSAPP
+        sync: false  # Set manually in dashboard

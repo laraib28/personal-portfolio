@@ -1,0 +1,69 @@
+{
+  "projects": [
+    {
+      "id": "tanzeem-e-khawajgan",
+      "title": "Tanzeem-e-Khawajgan - Welfare Website",
+      "problem": "Welfare organizations need a modern online presence to connect with communities, share their services, and provide instant support to users seeking guidance.",
+      "solution": "Built a fully launched welfare organization website using Next.js with an integrated agentic AI chatbot. The chatbot assists users by answering questions and providing guidance related to welfare services, making support accessible 24/7.",
+      "tech_stack": ["Next.js", "TypeScript", "Tailwind CSS", "AI Chatbot", "Vercel"],
+      "outcome": "Successfully launched platform that serves the community by providing instant AI-powered assistance and information about welfare services.",
+      "images": [],
+      "is_ai_work": true,
+      "featured": true,
+      "url": "https://tanzeem-e-khawajgan.vercel.app/",
+      "github": "https://github.com/laraib28/tanzeem-e-khawajgan"
+    },
+    {
+      "id": "hackathon-book-platform",
+      "title": "Book Platform with Translation & AI Chatbot",
+      "problem": "Documentation and book platforms often lack multilingual support and intelligent search capabilities, making it difficult for non-English users to access content effectively.",
+      "solution": "Developed a book and documentation website using Docusaurus with Urdu translation support. Integrated a RAG-based chatbot using OpenAI SDK for intelligent content interaction. Implemented JWT authentication with Better Auth for secure user access.",
+      "tech_stack": ["Docusaurus", "OpenAI SDK", "RAG", "JWT", "Better Auth", "TypeScript"],
+      "outcome": "Created an accessible multilingual platform with AI-powered content discovery, enabling users to interact with documentation in their preferred language.",
+      "images": [],
+      "is_ai_work": true,
+      "featured": true,
+      "url": "https://hackathon1-eight-xi.vercel.app/",
+      "github": "https://github.com/laraib28/hackathon1"
+    },
+    {
+      "id": "dynamic-blog",
+      "title": "Dynamic Blog Website",
+      "problem": "Content creators need a fast, modern blogging platform that provides a clean reading experience and performs well across all devices.",
+      "solution": "Developed a dynamic blog website using Next.js with a clean, responsive, and modern user interface. The platform allows users to browse and read blog posts with optimized performance and scalability.",
+      "tech_stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      "outcome": "Delivered a high-performance blog platform with excellent user experience and fast page loads across all devices.",
+      "images": [],
+      "is_ai_work": false,
+      "featured": true,
+      "url": "https://dynamic-blog-bay.vercel.app/",
+      "github": "https://github.com/laraib28/dynamic-blog"
+    },
+    {
+      "id": "ecommerce-website",
+      "title": "E-Commerce Website",
+      "problem": "Businesses need a complete online store solution with essential features like product management, shopping cart, user authentication, and checkout functionality.",
+      "solution": "Built a fully functional e-commerce website with Next.js featuring product listings, add-to-cart functionality, user login/signup, and a complete checkout process. Demonstrates real-world e-commerce features and workflows.",
+      "tech_stack": ["Next.js", "TypeScript", "Tailwind CSS", "Authentication", "Vercel"],
+      "outcome": "Created a production-ready e-commerce platform showcasing full shopping experience from browsing to checkout.",
+      "images": [],
+      "is_ai_work": false,
+      "featured": true,
+      "url": "https://hackathon-practise-five.vercel.app/",
+      "github": "https://github.com/laraib28/hackathon-website"
+    },
+    {
+      "id": "countdown-timer",
+      "title": "Countdown Timer Application",
+      "problem": "Event organizers and individuals need a simple, visually appealing way to track time remaining for important events, launches, or deadlines.",
+      "solution": "Built a simple and responsive countdown timer application using Next.js. The app can be used for events, product launches, or deadline tracking with a clean user interface.",
+      "tech_stack": ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
+      "outcome": "Delivered a lightweight, easy-to-use timer application that works seamlessly across all devices.",
+      "images": [],
+      "is_ai_work": false,
+      "featured": false,
+      "url": "https://countdown-timer-alpha-six.vercel.app/",
+      "github": "https://github.com/laraib28/cli-to-do"
+    }
+  ]
+}
