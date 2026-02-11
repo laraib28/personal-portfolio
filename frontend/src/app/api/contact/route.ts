@@ -22,35 +22,41 @@ export async function POST(request: Request) {
       );
     }
 
-    // Determine which endpoint to call (default to email)
-    const endpoint = channel === "whatsapp"
-      ? "/api/v1/tools/send-whatsapp"
-      : "/api/v1/tools/send-email";
+    const payload = JSON.stringify({ name, email, message, consent });
+    const headers = { "Content-Type": "application/json" };
 
-    // Forward request to MCP server
-    const mcpResponse = await fetch(`${env.MCP_SERVER_URL}${endpoint}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-        consent,
+    // Send both email and WhatsApp in parallel
+    const [emailRes, whatsappRes] = await Promise.allSettled([
+      fetch(`${env.MCP_SERVER_URL}/api/v1/tools/send-email`, {
+        method: "POST",
+        headers,
+        body: payload,
       }),
-    });
+      fetch(`${env.MCP_SERVER_URL}/api/v1/tools/send-whatsapp`, {
+        method: "POST",
+        headers,
+        body: payload,
+      }),
+    ]);
 
-    const result = await mcpResponse.json();
+    const emailOk = emailRes.status === "fulfilled" && emailRes.value.ok;
+    const whatsappOk = whatsappRes.status === "fulfilled" && whatsappRes.value.ok;
 
-    if (!mcpResponse.ok) {
+    if (!emailOk && !whatsappOk) {
       return NextResponse.json(
-        { error: result.detail || "Failed to send contact info" },
-        { status: mcpResponse.status }
+        { error: "Failed to send contact info via email and WhatsApp" },
+        { status: 500 }
       );
     }
 
-    return NextResponse.json(result);
+    return NextResponse.json({
+      success: true,
+      message: "Contact info sent successfully",
+      channels: {
+        email: emailOk,
+        whatsapp: whatsappOk,
+      },
+    });
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(
