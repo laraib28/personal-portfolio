@@ -14,7 +14,7 @@ class Settings(BaseSettings):
     environment: str = "development"
 
     # CORS
-    cors_origins: str = "http://localhost:3000"
+    cors_origins: str = "http://localhost:3000,http://localhost:3002,https://personal-portfolio-7z7k.vercel.app"
 
     # OpenAI
     openai_api_key: str = ""
