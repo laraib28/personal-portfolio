@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 // Fallback data in case MCP server is unavailable
 const fallbackProfile = {
-  name: "Portfolio Owner",
+  name: "Laraib Tabbassum",
   title: "Full Stack AI Engineer",
   summary:
     "Senior full-stack developer specializing in building production-grade AI systems. Expert in Next.js, Python, and agentic AI architectures.",
