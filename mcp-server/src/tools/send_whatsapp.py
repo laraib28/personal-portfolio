@@ -64,16 +64,10 @@ async def send_whatsapp_notification(
         client = TwilioClient(settings.twilio_account_sid, settings.twilio_auth_token)
 
         # Compose WhatsApp message
-        whatsapp_message = f"""🔔 *New Portfolio Lead*
-
-*Name:* {name}
-*Email:* {email}
-
-*Message:*
-{message}
-
----
-_Lead captured via portfolio chatbot. Visitor consented to contact._"""
+        whatsapp_message = f"""New Portfolio Lead:
+Name: {name}
+Email: {email}
+Message: {message}"""
 
         # Send via Twilio WhatsApp
         twilio_message = client.messages.create(

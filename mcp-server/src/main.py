@@ -226,6 +226,55 @@ async def send_whatsapp(request: Request, contact_request: ContactRequest):
     )
 
 
+@app.post("/api/v1/contact", tags=["Contact"], response_model=ContactResponse)
+@limiter.limit("3/hour")
+async def contact(request: Request, contact_request: ContactRequest):
+    """Unified contact endpoint: sends email + WhatsApp notification.
+
+    Email failure = error response. WhatsApp failure = logged warning only.
+    Rate limited to 3 requests per hour per IP.
+    """
+    logger.info(f"Contact request from {get_remote_address(request)}")
+
+    if not contact_request.consent:
+        raise HTTPException(
+            status_code=400,
+            detail="Consent is required to send contact information",
+        )
+
+    # Email is required — failure means error
+    email_result = await send_email_notification(
+        name=contact_request.name,
+        email=contact_request.email,
+        message=contact_request.message,
+        consent=contact_request.consent,
+    )
+
+    if not email_result.get("success"):
+        raise HTTPException(
+            status_code=500 if "not configured" in email_result.get("error", "") else 400,
+            detail=email_result.get("error", "Failed to send email"),
+        )
+
+    # WhatsApp is best-effort — failure is logged but not returned as error
+    try:
+        wa_result = await send_whatsapp_notification(
+            name=contact_request.name,
+            email=contact_request.email,
+            message=contact_request.message,
+            consent=contact_request.consent,
+        )
+        if not wa_result.get("success"):
+            logger.warning(f"WhatsApp notification failed: {wa_result.get('error')}")
+    except Exception as e:
+        logger.warning(f"WhatsApp notification error: {e}")
+
+    return ContactResponse(
+        success=True,
+        message="Notification sent successfully",
+    )
+
+
 if __name__ == "__main__":
     import uvicorn
 

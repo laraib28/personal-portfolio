@@ -64,16 +64,11 @@ async def send_email_notification(
     try:
         # Compose email
         email_html = f"""
-        <h2>New Portfolio Lead</h2>
-        <p>Someone is interested in your services!</p>
+        <h2>New Portfolio Inquiry</h2>
 
-        <h3>Contact Details</h3>
-        <ul>
-            <li><strong>Name:</strong> {name}</li>
-            <li><strong>Email:</strong> <a href="mailto:{email}">{email}</a></li>
-        </ul>
-
-        <h3>Message</h3>
+        <p><strong>Name:</strong> {name}</p>
+        <p><strong>Email:</strong> <a href="mailto:{email}">{email}</a></p>
+        <p><strong>Message:</strong></p>
         <p>{message}</p>
 
         <hr>
@@ -88,7 +83,7 @@ async def send_email_notification(
             {
                 "from": "Portfolio Bot <noreply@resend.dev>",
                 "to": settings.owner_email,
-                "subject": f"New Portfolio Lead: {name}",
+                "subject": "New Portfolio Inquiry",
                 "html": email_html,
                 "reply_to": email,
             }

@@ -1,10 +1,11 @@
-import { env } from "@/lib/env";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function POST(request: Request) {
+const MCP_SERVER_URL = process.env.MCP_SERVER_URL || "http://localhost:10000";
+
+export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, email, message, consent, channel } = body;
+    const { name, email, message, consent } = body;
 
     // Validate required fields
     if (!name || !email || !message) {
@@ -22,41 +23,22 @@ export async function POST(request: Request) {
       );
     }
 
-    const payload = JSON.stringify({ name, email, message, consent });
-    const headers = { "Content-Type": "application/json" };
+    const res = await fetch(`${MCP_SERVER_URL}/api/v1/contact`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email, message, consent }),
+    });
 
-    // Send both email and WhatsApp in parallel
-    const [emailRes, whatsappRes] = await Promise.allSettled([
-      fetch(`${env.MCP_SERVER_URL}/api/v1/tools/send-email`, {
-        method: "POST",
-        headers,
-        body: payload,
-      }),
-      fetch(`${env.MCP_SERVER_URL}/api/v1/tools/send-whatsapp`, {
-        method: "POST",
-        headers,
-        body: payload,
-      }),
-    ]);
-
-    const emailOk = emailRes.status === "fulfilled" && emailRes.value.ok;
-    const whatsappOk = whatsappRes.status === "fulfilled" && whatsappRes.value.ok;
-
-    if (!emailOk && !whatsappOk) {
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
       return NextResponse.json(
-        { error: "Failed to send contact info via email and WhatsApp" },
-        { status: 500 }
+        { error: data.detail || "Failed to send contact information" },
+        { status: res.status }
       );
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Contact info sent successfully",
-      channels: {
-        email: emailOk,
-        whatsapp: whatsappOk,
-      },
-    });
+    const data = await res.json();
+    return NextResponse.json(data);
   } catch (error) {
     console.error("Contact API error:", error);
     return NextResponse.json(
